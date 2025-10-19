@@ -10,17 +10,17 @@
 
 Crypyt is a lightweight, high-performance encryption toolkit implementing **AES-256-GCM** (Advanced Encryption Standard with Galois/Counter Mode), the same encryption standard used by governments and financial institutions worldwide. Designed as a middleware component for building secure communication applications, Crypyt provides battle-tested cryptographic operations through simple command-line tools.
 
-### Key Features
+### Key features
 
-- 🔐 **AES-256-GCM Encryption** - Industry-standard authenticated encryption
-- 🛡️ **Authentication Tags** - Prevents message tampering and ensures integrity
+- 🔐 **AES-256-GCM encryption** - Industry-standard authenticated encryption
+- 🛡️ **Authentication tags** - Prevents message tampering and ensures integrity
 - 🎲 **Random IVs** - Each encryption uses unique initialization vectors
-- ⚡ **High Performance** - Optimized C++ implementation with OpenSSL
-- 🔧 **Flexible Interface** - Command-line arguments or interactive mode
-- 🔌 **Middleware Ready** - Perfect for building secure communication apps
-- 🐧 **Linux Native** - Designed for Linux systems
+- ⚡ **High performance** - Optimized C++ implementation with OpenSSL
+- 🔧 **Flexible interface** - Command-line arguments or interactive mode
+- 🔌 **Middleware ready** - Perfect for building secure communication apps
+- 🐧 **Linux native** - Designed for Linux systems
 
-### Use Cases
+### Use cases
 
 - Secure messaging applications
 - File encryption services
@@ -67,7 +67,7 @@ crypyt-decrypt -h
 
 ## Usage
 
-### Command-Line Mode
+### Command-line mode
 
 **Encrypt a message:**
 ```bash
@@ -84,7 +84,7 @@ crypyt-decrypt -k "your_secret_key" -c "iv:tag:ciphertext"
 crypyt-encrypt -k "my;complex>key!" -m "Message with spaces"
 ```
 
-### Interactive Mode
+### Interactive mode
 
 Simply run without arguments for guided prompts:
 ```bash
@@ -95,7 +95,7 @@ crypyt-decrypt
 # Follow the prompts...
 ```
 
-### Integration Example
+### Integration example
 
 Use Crypyt as middleware in your applications:
 
@@ -115,40 +115,19 @@ decrypted=$(crypyt-decrypt -k "$SECRET_KEY" -c "$response")
 echo "Received: $decrypted"
 ```
 
-## Security Features
+## Security features
 
-- **256-bit Key Derivation** - Uses SHA-256 to derive strong keys from passwords
-- **Authenticated Encryption** - GCM mode provides both confidentiality and authenticity
-- **Tamper Detection** - Any modification to encrypted data is automatically detected
-- **No Key Reuse** - Random IVs ensure the same message encrypts differently each time
-- **Memory Safety** - Sensitive data is cleared from memory after use
-
-## How It Works
-
-1. **Encryption Process:**
-   - User provides encryption key and plaintext message
-   - Key is derived using SHA-256 hash function (256 bits)
-   - Random 12-byte IV (Initialization Vector) is generated
-   - AES-256-GCM encrypts the message
-   - 16-byte authentication tag is generated
-   - Output: `IV:Tag:Ciphertext` (all in hexadecimal)
-
-2. **Decryption Process:**
-   - User provides encryption key and encrypted message
-   - Message is parsed into IV, Tag, and Ciphertext components
-   - Key is derived using the same SHA-256 process
-   - AES-256-GCM decrypts and verifies authenticity
-   - Original message is recovered (or authentication fails)
+- **256-bit key derivation** - Uses SHA-256 to derive strong keys from passwords
+- **Authenticated encryption** - GCM mode provides both confidentiality and authenticity
+- **Tamper detection** - Any modification to encrypted data is automatically detected
+- **No key reuse** - Random IVs ensure the same message encrypts differently each time
+- **Memory safety** - Sensitive data is cleared from memory after use
 
 ## Performance
 
 - Encryption speed: ~500 MB/s (depending on hardware)
 - Key derivation: <1ms per operation
 - Memory footprint: <5 MB per process
-
-## Contributing
-
-Contributions are welcome! This project aims to provide robust encryption tools for the Linux community.
 
 ## License
 
